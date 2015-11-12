@@ -27,6 +27,9 @@
 <input type="text" id="code" value="Testing7fjWdr" class="form-control" />
 </div>
 <button type="button" class="btn btn-success" id="validate">Validate</button>
+
+<button type="button" class="btn btn-info" id="buy">Buy product</button>
+
 </form>
 
 <h1>Results</h1>
@@ -51,7 +54,6 @@
 
             Voucherify.setIdentity("testvoucher-by-frakti");
         };
-
         init();
 
         document.getElementById("validate").onclick = function (e) {
@@ -72,7 +74,8 @@
             .fail(function (err) {
                 alert('An error occurred: ', err);
             });
-        }
+        };
+
     })(Voucherify, window.document);
 </script>
 </body>
