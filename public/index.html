@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>Vouchers</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="lib/voucherify-1.2.0.js"></script>
 </head>
 <body>
@@ -40,43 +40,6 @@
 </ul>
 </form>
 
-<hr />
-
-
-
-<script type="text/javascript">
-    (function (Voucherify, document) {
-        function init() {
-            Voucherify.initialize(
-              "011240bf-d5fc-4ef1-9e82-11eb68c43bf5",
-              "9e2230c5-71fb-460a-91c6-fbee64707a20"
-            );
-
-            Voucherify.setIdentity("testvoucher-by-frakti");
-        };
-        init();
-
-        document.getElementById("validate").onclick = function (e) {
-            e.preventDefault();
-            var code = document.getElementById('code').value;
-
-            Voucherify.validate(code)
-            .done(function (voucher) {
-                if (!voucher.valid) {
-                    alert('Coupon not valid');
-                } else {
-                    var productPrice = document.getElementById("price").value;
-                    document.getElementById("discountPrice").innerHTML = Voucherify.utils.calculatePrice(+productPrice, voucher);
-                    document.getElementById("discountType").innerHTML = voucher.discount_type;
-                    document.getElementById("discount").innerHTML = Voucherify.utils.calculateDiscount(+productPrice, voucher);
-                }
-            })
-            .fail(function (err) {
-                alert('An error occurred: ', err);
-            });
-        };
-
-    })(Voucherify, window.document);
-</script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
