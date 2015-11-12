@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vouchers</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="lib/voucherify-1.2.0.js"></script>
+</head>
+<body>
+<h1>Shopping cart</h1>
+<p>
+(Use <strong>Testing7fjWdr</strong> as valid test coupon)
+</p>
+<form>
+<div class="form-group">
+<label for="price">Product price</label>
+<input type="text" id="price" value="100" class="form-control" />
+<div>
+<div class="form-group">
+<label for="code">Code</label>
+<input type="text" id="code" value="Testing7fjWdr" class="form-control" />
+</div>
+<button type="button" class="btn btn-success" id="validate">Validate</button>
+</form>
+
+<h1>Results</h1>
+<ul>
+    <li>Product value after discount: <strong id="discountPrice">?</strong> &euro;</li>
+    <li>Discount type: <strong id="discountType">?</strong></li>
+    <li>Discount: <strong id="discount">?</strong> &euro;</li>
+</ul>
+</form>
+
+<hr />
+
+
+
+<script type="text/javascript">
+    (function (Voucherify, document) {
+        function init() {
+            Voucherify.initialize(
+              "011240bf-d5fc-4ef1-9e82-11eb68c43bf5",
+              "9e2230c5-71fb-460a-91c6-fbee64707a20"
+            );
+
+            Voucherify.setIdentity("testvoucher-by-frakti");
+        };
+
+        init();
+
+        document.getElementById("validate").onclick = function (e) {
+            e.preventDefault();
+            var code = document.getElementById('code').value;
+
+            Voucherify.validate(code)
+            .done(function (voucher) {
+                if (!voucher.valid) {
+                    alert('Coupon not valid');
+                } else {
+                    var productPrice = document.getElementById("price").value;
+                    document.getElementById("discountPrice").innerHTML = Voucherify.utils.calculatePrice(+productPrice, voucher);
+                    document.getElementById("discountType").innerHTML = voucher.discount_type;
+                    document.getElementById("discount").innerHTML = Voucherify.utils.calculateDiscount(+productPrice, voucher);
+                }
+            })
+            .fail(function (err) {
+                alert('An error occurred: ', err);
+            });
+        }
+    })(Voucherify, window.document);
+</script>
+</body>
+</html>
