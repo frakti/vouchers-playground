@@ -17,5 +17,5 @@ jar {
 }
 
 dependencies {
-    compile 'pl.rspective.voucherify.client:voucherify-java-sdk:1.9.0'
+    compile 'pl.rspective.voucherify.client:voucherify-java-sdk:1.9.1'
 }
