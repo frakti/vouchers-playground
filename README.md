@@ -9,7 +9,7 @@ The sandbox
 -----------
 
 Repository has node.js backend which uses [Voucherify NodeJS SDK](https://voucherify.readme.io/docs/nodejs-tutorial) to redeem a voucher. Backend serves also a static page (`/public`) on which you can validate voucher and use some utils on your frontend using [Voucherify.js SDK](https://voucherify.readme.io/docs/voucherifyjs).
-In `java-app` dir you can find small static main Java app showing how to redeem vouchers in Java-based backend using [voucherify-java-sdk](http://repo1.maven.org/maven2/pl/rspective/voucherify/client/voucherify-java-sdk/1.9.1/). They provide also (Andorid SDK)[https://voucherify.readme.io/docs/android-tutorial] which contains a nice demo app, recommend o check it out!
+In `java-app` dir you can find small static main Java app showing how to redeem vouchers in Java-based backend using [voucherify-java-sdk](http://repo1.maven.org/maven2/pl/rspective/voucherify/client/voucherify-java-sdk/1.9.1/). They provide also [Andorid SDK](https://voucherify.readme.io/docs/android-tutorial) which contains a nice demo app, recommend o check it out!
 
 
 How to run
