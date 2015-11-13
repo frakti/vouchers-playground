@@ -3,7 +3,6 @@ package shop;
 import pl.rspective.voucherify.client.VoucherifyClient;
 import pl.rspective.voucherify.client.VoucherifyUtils;
 import pl.rspective.voucherify.client.callback.VoucherifyCallback;
-import pl.rspective.voucherify.client.exception.VoucherifyException;
 import pl.rspective.voucherify.client.model.Voucher;
 import retrofit.RetrofitError;
 
