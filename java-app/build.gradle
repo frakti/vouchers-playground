@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+mainClassName = 'shop.Main'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'shop'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile 'pl.rspective.voucherify.client:voucherify-java-sdk:1.9.0'
+}
